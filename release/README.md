@@ -1,6 +1,6 @@
 # U60 Pro 三页屏幕 UI · 1.0.0
 
-这个目录包含 UFI-TOOLS 插件商店的单文件插件和屏幕资源。商店只收一个 `.js` 或 `.txt` 文件，因此投稿选择 `U60Pro三页屏幕UI-基于33333s及scoltzero改版.js`；屏幕程序和页面由脚本从 [GitHub Releases](https://github.com/huangtengsz-ui/u60pro-screen-ui/releases) 下载。`v1.0.0` Release 包含 `u60pro-devui-aarch64`、`ui.tar.gz`、`source.tar.gz`、`version.json`、`SHA256SUMS`、插件文件和许可文件包 `licenses.tar.gz`。
+这个目录包含 UFI-TOOLS 插件商店的单文件插件和屏幕资源。商店只收一个 `.js` 或 `.txt` 文件，因此投稿选择 `U60Pro三页屏幕UI-基于33333s及scoltzero改版.js`；屏幕程序和页面优先从 [GitHub Releases](https://github.com/huangtengsz-ui/u60pro-screen-ui/releases) 下载，设备连不上 `github.com` 时改用同仓库的 `raw.githubusercontent.com` 固定标签地址。`v1.0.0` Release 包含 `u60pro-devui-aarch64`、`ui.tar.gz`、`source.tar.gz`、`version.json`、`SHA256SUMS`、插件的 ASCII 文件名副本和许可文件包 `licenses.tar.gz`。
 
 ## 适用范围
 

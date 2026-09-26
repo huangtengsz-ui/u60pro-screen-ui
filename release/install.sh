@@ -3,6 +3,8 @@
 set -eu
 
 BASE_URL='@@BASE_URL@@'
+BIN_FALLBACK_URL='@@BIN_FALLBACK_URL@@'
+UI_FALLBACK_URL='@@UI_FALLBACK_URL@@'
 BIN_SHA='@@BIN_SHA@@'
 UI_SHA='@@UI_SHA@@'
 DEVUI_DIR=${DEVUI_DIR:-/data/plugins/u60pro-devui}
@@ -15,6 +17,11 @@ fail() { echo "ERROR: $*" >&2; exit 1; }
 hash_file() {
     if command -v sha256sum >/dev/null 2>&1; then sha256sum "$1" | cut -d ' ' -f 1
     else shasum -a 256 "$1" | cut -d ' ' -f 1; fi
+}
+download_asset() {
+    if curl -fLsS --retry 1 --connect-timeout 8 --max-time 150 "$1" -o "$3"; then return 0; fi
+    echo '主下载地址不可用，改用 GitHub 源码镜像' >&2
+    curl -fLsS --retry 2 --connect-timeout 10 --max-time 150 "$2" -o "$3"
 }
 restart_ui() {
     [ "${SKIP_RESTART:-0}" = 1 ] && return 0
@@ -36,9 +43,9 @@ command -v tar >/dev/null 2>&1 || fail '设备缺少 tar'
 
 STAGE=$(mktemp -d "$DEVUI_DIR/.screen-ui-stage.XXXXXX") || fail '无法创建暂存目录'
 trap 'rm -rf "$STAGE"' EXIT HUP INT TERM
-curl -fLsS --retry 2 --connect-timeout 10 --max-time 150 "$BASE_URL/u60pro-devui-aarch64" -o "$STAGE/u60pro-devui" || fail '程序下载失败'
+download_asset "$BASE_URL/u60pro-devui-aarch64" "$BIN_FALLBACK_URL" "$STAGE/u60pro-devui" || fail '程序下载失败'
 [ "$(hash_file "$STAGE/u60pro-devui")" = "$BIN_SHA" ] || fail '程序 SHA-256 校验失败'
-curl -fLsS --retry 2 --connect-timeout 10 --max-time 150 "$BASE_URL/ui.tar.gz" -o "$STAGE/ui.tar.gz" || fail '页面下载失败'
+download_asset "$BASE_URL/ui.tar.gz" "$UI_FALLBACK_URL" "$STAGE/ui.tar.gz" || fail '页面下载失败'
 [ "$(hash_file "$STAGE/ui.tar.gz")" = "$UI_SHA" ] || fail '页面 SHA-256 校验失败'
 
 mkdir "$STAGE/new-ui" "$STAGE/merged" || fail '无法创建页面暂存目录'
