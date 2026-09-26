@@ -78,6 +78,9 @@ def main() -> None:
                 add_bytes(archive, "BUILDING.md", (ROOT / "release" / "BUILDING.md").read_bytes())
                 add_bytes(archive, "LICENSE", (runtime / "LICENSE").read_bytes())
                 add_bytes(archive, "NOTICE.md", (ROOT / "release" / "NOTICE.md").read_bytes())
+                for path in sorted((ROOT / "release" / "licenses").iterdir()):
+                    if path.is_file():
+                        add_bytes(archive, "licenses/" + path.name, path.read_bytes())
 
     (OUTPUT / "version.json").write_text(json.dumps(VERSION, ensure_ascii=False, indent=2) + "\n")
     shutil.copy2(SOURCE / "runtime-src" / "LICENSE", OUTPUT / "LICENSE")
@@ -88,10 +91,15 @@ def main() -> None:
     for path in sorted((ROOT / "release" / "licenses").iterdir()):
         if path.is_file():
             shutil.copy2(path, licenses / path.name)
+    with (OUTPUT / "licenses.tar.gz").open("wb") as raw:
+        with gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=0) as compressed:
+            with tarfile.open(fileobj=compressed, mode="w") as archive:
+                for path in sorted(licenses.iterdir()):
+                    if path.is_file():
+                        add_bytes(archive, path.name, path.read_bytes())
     shutil.copy2(ROOT / "release" / "NOTICE.md", OUTPUT / "NOTICE.md")
     shutil.copy2(ROOT / "release" / "README.md", OUTPUT / "README.md")
-    names = ["version.json", "u60pro-devui-aarch64", "ui.tar.gz", "source.tar.gz", "LICENSE", "NOTICE.md", "README.md"]
-    names.extend(f"licenses/{path.name}" for path in sorted(licenses.iterdir()) if path.is_file())
+    names = ["version.json", "u60pro-devui-aarch64", "ui.tar.gz", "source.tar.gz", "licenses.tar.gz", "LICENSE", "NOTICE.md", "README.md"]
     (OUTPUT / "SHA256SUMS").write_text("".join(f"{sha256(OUTPUT / name)}  {name}\n" for name in names))
 
     with tarfile.open(OUTPUT / "ui.tar.gz", mode="r:gz") as archive:
