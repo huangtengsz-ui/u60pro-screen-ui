@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><link rel="stylesheet" href="style.css"></head>
+<body class="{{THEME}} readable settings-page">
+  {{STATUSBAR}}
+  <div class="subtop"><a href="act:backfunc" class="subback">返回</a><span class="subname"><span class="ui-ico ico-settings"><i></i><em></em><b></b><strong></strong></span>全部设置</span></div>
+
+  <div class="settings-intro">常用开关可从屏幕顶部下滑快速操作</div>
+
+  <div class="settings-section"><span class="ui-ico ico-wifi"><i></i><em></em><b></b></span>网络与共享</div>
+  <div class="card settings-group">
+    <a href="act:sub:wifi.html" class="settings-link"><span class="ui-ico ico-wifi"><i></i><em></em><b></b></span><b>WiFi 分享</b><span class="settings-desc">{{WIFISTATE}} · 名称、频段与 NFC ›</span></a>
+    <a href="act:usbnet" class="row setting-tap"><span class="lab">USB 网络共享<span class="st">{{USBNETSTATE}}</span></span><span class="ctrl"><span class="sw {{USBNETCLASS}}"><span class="sw-track"></span><span class="kn"></span></span></span></a>
+  </div>
+
+  <div class="settings-section"><span class="ui-ico ico-power"><i></i><em></em><b></b></span>供电与 USB</div>
+  <div class="card settings-group">
+    <a href="act:dps" class="row setting-tap"><span class="lab">电源直供<span class="st">{{DPSSTATE}} · 插电时减少电池损耗</span></span><span class="ctrl"><span class="sw {{DPSCLASS}}"><span class="sw-track"></span><span class="kn"></span></span></span></a>
+    <a href="act:usbpower" class="row setting-tap"><span class="lab">USB 供电方向<span class="st">{{USBPWRSTATE}}</span></span><span class="ctrl"><span class="sw {{USBPWRCLASS}}"><span class="sw-track"></span><span class="kn"></span></span></span></a>
+  </div>
+
+  <div class="settings-section"><span class="ui-ico ico-screen"><i></i><em></em><b></b></span>屏幕与锁定</div>
+  <div class="card settings-group">
+    <div class="srow"><span>亮度</span><span class="sval">{{BRIGHT}}%</span></div>
+    <a href="act:bright" id="bright-bar" class="slider"><span class="sfill" style="width:{{BRIGHT}}%"></span></a>
+    <div class="srow"><span>自动息屏</span></div>{{AUTOOFF}}
+    <a href="act:locktoggle" class="row setting-tap"><span class="lab">锁屏<span class="st">{{LOCKSTATE}}</span></span><span class="ctrl"><span class="sw {{LOCKCLASS}}"><span class="sw-track"></span><span class="kn"></span></span></span></a>
+  </div>
+
+  <div class="settings-section"><span class="ui-ico ico-display"><i>A</i><em></em><b></b></span>界面显示</div>
+  <div class="card settings-group">
+    <a href="act:spunit" class="row setting-tap"><span class="lab">速率单位<span class="st">{{SPUNITSTATE}}</span></span><span class="ctrl"><span class="sw {{SPUNITCLASS}}"><span class="sw-track"></span><span class="kn"></span></span></span></a>
+    <a href="act:batpct" class="row setting-tap"><span class="lab">电量百分比<span class="st">{{BATPCTSTATE}}</span></span><span class="ctrl"><span class="sw {{BATPCTCLASS}}"><span class="sw-track"></span><span class="kn"></span></span></span></a>
+    <a href="act:theme" class="row setting-tap"><span class="lab">浅色主题<span class="st">{{THEMESTATE}}</span></span><span class="ctrl"><span class="sw {{THEMECLASS}}"><span class="sw-track"></span><span class="kn"></span></span></span></a>
+    <div class="srow settings-refresh"><span>数据刷新间隔</span></div>{{REFRESHSEG}}
+  </div>
+
+  <div class="settings-section"><span class="ui-ico ico-advanced"><i></i><em></em><b></b></span>高级与诊断</div>
+  <div class="card settings-group">
+    <a href="act:sub:advanced.html" class="settings-link"><span class="ui-ico ico-advanced"><i></i><em></em><b></b></span><b>高级工具</b><span class="settings-desc">信令、锁频、双卡与扩展 ›</span></a>
+    <a href="act:sub:device.html" class="settings-link"><span class="ui-ico ico-device"><i></i><em></em><b></b></span><b>设备信息</b><span class="settings-desc">CPU、内存、电池与版本 ›</span></a>
+    <a href="act:openmodal:sig" class="settings-link"><span class="ui-ico ico-signal"><i></i><em></em><b></b></span><b>信令采集</b><span class="settings-desc">{{SIGADVSTATE}} ›</span></a>
+  </div>
+  {{TOAST}}
+  <div class="pgpad"></div>
+</body>
+</html>

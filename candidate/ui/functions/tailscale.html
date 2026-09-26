@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Tailscale</title>
+</head>
+<body>
+  <div class="card">
+    <div class="title">Tailscale <span class="r {{TSSTATECLASS}}">{{TSSTATE}}</span></div>
+    <table>
+      <tr><td class="kv-l">虚拟 IP</td><td class="val">{{TSIP}}</td></tr>
+      <tr><td class="kv-l">设备名称</td><td class="val">{{TSHOST}}</td></tr>
+      <tr><td class="kv-l">版本</td><td class="val">{{TSVERSION}}</td></tr>
+      <tr><td class="kv-l">进程 PID</td><td class="val">{{TSPID}}</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="title">子网路由</div>
+    <table>
+      <tr><td class="kv-l">本机广播</td><td class="val sm">{{TSROUTES}}</td></tr>
+      <tr><td class="kv-l">开机自启</td><td class="val">{{TSBOOT}}</td></tr>
+    </table>
+    <p class="func-note">路由批准、登录和详细配置仍请在 UFI-TOOLS 网页端完成。</p>
+  </div>
+
+  <div class="card">
+    <div class="title">服务控制</div>
+    <div class="svc-grid">
+      <a href="act:tsstart" class="svc-btn {{TSRUNCLASS}}">启动</a>
+      <a href="act:tsstop" class="svc-btn {{TSSTOPCLASS}}">停止</a>
+    </div>
+    <div class="svc-grid svc-secondary">
+      <a href="act:tsrestart" class="svc-btn">重启服务</a>
+      <a href="act:tsrefresh" class="svc-btn">刷新状态</a>
+    </div>
+    <div class="svc-log">{{TSACTIONLOG}}</div>
+  </div>
+</body>
+</html>

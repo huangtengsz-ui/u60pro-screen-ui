@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><link rel="stylesheet" href="style.css"></head>
+<body class="{{THEME}} readable quick-page">
+  {{STATUSBAR}}
+  <div class="quick-head"><b>快捷操作</b><span class="quick-gesture">上滑收起</span></div>
+  <div class="quick-summary">随身 WiFi · {{CLIENTS}} 台设备连接</div>
+
+  <div class="quick-tiles">
+    <a href="act:wifi" class="quick-tile {{WIFICLASS}}"><span class="ui-ico ico-wifi-label quick-icon"><i>WiFi</i><em></em></span><b>WiFi 分享</b><span class="quick-state">{{WIFISTATE}}</span></a>
+    <a href="act:usbnet" class="quick-tile {{USBNETCLASS}}"><span class="ui-ico ico-usb quick-icon"><i>USB</i><em></em></span><b>USB 共享</b><span class="quick-state">{{USBNETSTATE}}</span></a>
+    <a href="act:dps" class="quick-tile {{DPSCLASS}}"><span class="ui-ico ico-power quick-icon"><i></i><em></em><b></b></span><b>电源直供</b><span class="quick-state">{{DPSSTATE}}</span></a>
+    <a href="act:usbpower" class="quick-tile {{USBPWRCLASS}}"><span class="ui-ico ico-direction quick-icon"><i>↑</i><em>↓</em></span><b>供电方向</b><span class="quick-state">{{USBPWRSTATE}}</span></a>
+  </div>
+
+  <div class="quick-controls">
+    <div class="srow"><span>屏幕亮度</span><span class="sval">{{BRIGHT}}%</span></div>
+    <a href="act:bright" id="bright-bar" class="slider"><span class="sfill" style="width:{{BRIGHT}}%"></span></a>
+    <div class="srow"><span>自动息屏</span></div>
+    {{AUTOOFF}}
+  </div>
+  <a href="act:quicksettings" class="quick-all"><span class="ui-ico ico-settings"><i></i><em></em><b></b><strong></strong></span>全部设置 <span>›</span></a>
+  {{TOAST}}
+</body>
+</html>

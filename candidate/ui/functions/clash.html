@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Clash / Mihomo</title>
+</head>
+<body>
+  <div class="card">
+    <div class="title">Clash / Mihomo <span class="r {{MHSTATECLASS}}">{{MHSTATE}}</span></div>
+    <table>
+      <tr><td class="kv-l">核心版本</td><td class="val">{{MHVERSION}}</td></tr>
+      <tr><td class="kv-l">运行模式</td><td class="val">{{MHMODE}}</td></tr>
+      <tr><td class="kv-l">Mixed 端口</td><td class="val">{{MHPORT}}</td></tr>
+      <tr><td class="kv-l">进程 PID</td><td class="val">{{MHPID}}</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="title">透明代理状态</div>
+    <table>
+      <tr><td class="kv-l">TUN 接口</td><td class="val">{{MHTUN}}</td></tr>
+      <tr><td class="kv-l">策略路由</td><td class="val">{{MHRULES}}</td></tr>
+      <tr><td class="kv-l">大陆 IP 集合</td><td class="val">{{MHIPSET}} 条</td></tr>
+    </table>
+    <p class="func-note">进程、TUN 与 2022 策略路由都就绪时，状态才显示“代理运行中”。</p>
+  </div>
+
+  <div class="card">
+    <div class="title">服务控制</div>
+    <div class="svc-grid">
+      <a href="act:mhstart" class="svc-btn {{MHRUNCLASS}}">启动</a>
+      <a href="act:mhstop" class="svc-btn {{MHSTOPCLASS}}">停止</a>
+    </div>
+    <div class="svc-grid svc-secondary">
+      <a href="act:mhrestart" class="svc-btn">重启服务</a>
+      <a href="act:mhrefresh" class="svc-btn">刷新状态</a>
+    </div>
+    <div class="svc-log">{{MHACTIONLOG}}</div>
+  </div>
+</body>
+</html>

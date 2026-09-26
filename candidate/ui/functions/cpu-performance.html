@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>CPU 性能模式</title>
+</head>
+<body>
+  <div class="card">
+    <div class="title">CPU 性能模式 <span class="r {{CPUSTATECLASS}}">{{CPUSTATE}}</span></div>
+    <table>
+      <tr><td class="kv-l">当前频率</td><td class="val">{{CPUCUR}}</td></tr>
+      <tr><td class="kv-l">调速器</td><td class="val">{{CPUGOV}}</td></tr>
+      <tr><td class="kv-l">频率范围</td><td class="val sm">{{CPUMIN}} - {{CPUMAX}}</td></tr>
+      <tr><td class="kv-l">CPU 温度</td><td class="val">{{CPUTEMP}}°C</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="title">模式选择</div>
+    <div class="svc-grid">
+      <a href="act:cpupowersave" class="svc-btn {{CPUPOWERSAVECLASS}}">省电</a>
+      <a href="act:cpubalance" class="svc-btn {{CPUBALANCECLASS}}">均衡</a>
+    </div>
+    <div class="svc-grid">
+      <a href="act:cpuperformance" class="svc-btn {{CPUPERFORMANCECLASS}}">性能</a>
+      <a href="act:cpuextreme" class="svc-btn {{CPUEXTREMECLASS}}">极致 2208</a>
+    </div>
+    <div class="svc-grid svc-secondary">
+      <a href="act:cpurefresh" class="svc-btn svc-wide">刷新状态</a>
+    </div>
+    <p class="func-note">极致模式功耗和温度更高；硬件温控仍会自动介入。重启后需重新选择。</p>
+    <div class="svc-log">{{CPUACTIONLOG}}</div>
+  </div>
+</body>
+</html>

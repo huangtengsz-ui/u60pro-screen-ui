@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>流量管理</title>
+</head>
+<body>
+  <div class="card">
+    <div class="title">按卡持久统计 <span class="r {{SIMTRAFFICSTATECLASS}}">{{SIMTRAFFICSTATE}}</span></div>
+    <p class="func-note">按 ICCID 分开累计，重启不会归零；<br>每日和套餐周期按 DevUI 时区结算</p>
+  </div>
+
+  {{SIMTRAFFICCARDS}}
+
+  <div class="card traffic-plan-card">
+    <div class="title">套餐设置</div>
+    {{PLANSLOTSELECTOR}}
+    <div class="traffic-plan-title">{{PLANTITLE}}</div>
+
+    <div class="seg seg2 traffic-plan-toggle">
+      <a href="act:trafficenabled:1" class="segc {{PLANENABLECLASS}}">启用套餐</a>
+      <a href="act:trafficenabled:0" class="segc {{PLANDISABLECLASS}}">仅统计</a>
+    </div>
+
+    <div class="step-row">
+      <div class="step-label">套餐总量</div>
+      <a href="act:trafficgib:-10" class="step-btn">-10</a>
+      <a href="act:trafficgib:-1" class="step-btn">-1</a>
+      <span class="step-value">{{PLANGIB}}</span>
+      <a href="act:trafficgib:1" class="step-btn">+1</a>
+      <a href="act:trafficgib:10" class="step-btn">+10</a>
+    </div>
+
+    <div class="step-row step-day">
+      <div class="step-label">每月重置日</div>
+      <a href="act:trafficday:-1" class="step-btn">-</a>
+      <span class="step-value">{{PLANRESETDAY}} 日</span>
+      <a href="act:trafficday:1" class="step-btn">+</a>
+    </div>
+
+    <div class="traffic-plan-state">{{PLANSTATE}}</div>
+    <div class="svc-grid">
+      <a href="act:trafficapply" class="svc-btn svc-wide {{PLANAPPLYCLASS}}">保存套餐设置</a>
+    </div>
+  </div>
+</body>
+</html>

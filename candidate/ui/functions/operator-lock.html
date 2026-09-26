@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>漫游卡锁运营商</title>
+</head>
+<body>
+  <div class="card">
+    <div class="title">漫游卡锁运营商 <span class="r {{OPSTATECLASS}}">{{OPSTATE}}</span></div>
+    <table>
+      <tr><td class="kv-l">SIM</td><td class="val">{{OPSIM}}</td></tr>
+      <tr><td class="kv-l">当前运营商</td><td class="val">{{OPOPERATOR}}</td></tr>
+      <tr><td class="kv-l">网络制式</td><td class="val">{{OPRAT}}</td></tr>
+      <tr><td class="kv-l">选网模式</td><td class="val">{{OPMODE}}</td></tr>
+    </table>
+    <div class="job-line">{{OPJOB}}</div>
+  </div>
+
+  <div class="card">
+    <div class="title">选中运营商 <span class="r muted">{{OPSELECTED}}</span></div>
+    <div class="operator-pref">策略 {{OPRATPREF}} · {{OPPOLICY}}</div>
+    <div class="svc-grid">
+      <a href="act:opapply" class="svc-btn {{OPLOCKCLASS}}">{{OPLOCKLABEL}}</a>
+      <a href="act:opauto" class="svc-btn">恢复自动</a>
+    </div>
+    <div class="svc-grid svc-secondary">
+      <a href="act:oprefresh" class="svc-btn">刷新状态</a>
+      <a href="act:opscan" class="svc-btn">扫描运营商</a>
+    </div>
+    <div class="svc-grid svc-secondary">
+      <a href="act:opcancel" class="svc-btn svc-wide {{OPCANCELCLASS}}">取消当前任务</a>
+    </div>
+    <div class="svc-log">{{OPACTIONLOG}}</div>
+  </div>
+
+  <div class="card compact-card">
+    <div class="title">运营商列表</div>
+    <div class="compact-list operator-list">{{OPLIST}}</div>
+    <p class="func-note">点击只会选中；锁定需要再次确认，详细参数仍在网页端设置。</p>
+  </div>
+</body>
+</html>

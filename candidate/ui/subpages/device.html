@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><link rel="stylesheet" href="style.css"></head>
+<body class="{{THEME}} readable settings-page">
+  {{STATUSBAR}}
+  <div class="subtop"><a href="act:backfunc" class="subback">返回</a><span class="subname"><span class="ui-ico ico-device"><i></i><em></em><b></b></span>设备信息</span></div>
+  <div class="card">
+    <div class="title">运行状态</div>
+    <table class="grid2">
+      <tr><td class="gl">CPU <b>{{CPUUSAGE}}%</b></td><td>温度 <b>{{CPUTEMP}}°</b></td></tr>
+      <tr><td class="gl">电池温度 <b>{{BATTEMP}}°</b></td><td>运行 <b>{{UPSHORT}}</b></td></tr>
+      <tr><td class="gl">充电器 <b>{{CHGV}}V</b></td><td>电流 <b>{{CHGI}}mA</b></td></tr>
+      <tr><td class="gl">电池 <b>{{BATV}}V</b></td><td>电流 <b>{{BATI}}mA</b></td></tr>
+    </table>
+    <div class="memrow"><span>内存占用</span><span class="mv"><b>{{MEM}}%</b> <span class="muted">{{MEMDETAIL}}</span></span></div>
+    <div class="membar"><span class="memfill" style="width:{{MEM}}%"></span></div>
+    <table>
+      <tr><td class="kv-l">版本</td><td class="val sm">{{SWVER}}</td></tr>
+      <tr><td class="kv-l">IMEI <a href="act:revealimei" class="rev">{{IMEIBTN}}</a></td><td class="val sm">{{IMEI}}</td></tr>
+      <tr><td class="kv-l">QCI / AMBR</td><td class="val sm">QCI {{QCI}} · {{AMBR}}</td></tr>
+    </table>
+  </div>
+  <a href="act:refreshambr" class="card resetbtn2">刷新 AMBR 缓存</a>
+  {{TOAST}}<div class="pgpad"></div>
+</body>
+</html>

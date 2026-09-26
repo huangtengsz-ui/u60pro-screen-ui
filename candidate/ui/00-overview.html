@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><link rel="stylesheet" href="style.css"></head>
+<body class="{{THEME}} overview">
+  {{STATUSBAR}}
+  <div class="ov-top">
+    <div class="ov-eyebrow">实时网络 <span class="ov-online">{{WAN}}</span></div>
+    <div class="ov-identity">{{OPER}} <span class="ov-network">{{NETTYPE}}</span></div>
+    <div class="ov-context">已连接设备 {{CLIENTS}} 台</div>
+  </div>
+  <div class="ov-card ov-speed">
+    <div class="ov-label">当前下载</div>
+    <div class="ov-speed-main"><span class="ov-arrow">↓</span> {{RXSPEED}}</div>
+    <div class="ov-speed-up">上传 <b>↑ {{TXSPEED}}</b></div>
+  </div>
+  <div class="ov-card ov-signal">
+    <div class="ov-label">信号质量</div>
+    <table class="ov-signal-table"><tr>
+      <td><span class="ov-small-label">RSRP</span><span class="ov-number">{{RSRP}}</span><span class="ov-unit">dBm</span>
+        <span class="ov-track"><span class="ov-fill" style="width:{{RSRP_W}}%"></span></span></td>
+      <td><span class="ov-small-label">SINR</span><span class="ov-number">{{SINR}}</span><span class="ov-unit">dB</span>
+        <span class="ov-track"><span class="ov-fill ov-fill-sinr" style="width:{{SINR_W}}%"></span></span></td>
+    </tr></table>
+  </div>
+  <div class="ov-card ov-cell">
+    <div class="ov-label">当前连接</div>
+    <div class="ov-cell-main"><b>{{BAND}}</b><span>PCI {{PCI}}</span></div>
+    <div class="ov-hint">左滑查看全部载波与基站信息</div>
+  </div>
+  <a href="act:func:sim-traffic.html" class="ov-card ov-traffic">
+    <span class="ov-traffic-head">本次连接流量 <span>按卡统计 ›</span></span>
+    <span class="ov-traffic-numbers">下载 {{RXBYTES}} <i>·</i> 上传 {{TXBYTES}}</span>
+  </a>
+  {{TOAST}}
+  {{DOTS}}
+</body>
+</html>

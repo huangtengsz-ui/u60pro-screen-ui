@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>时区</title>
+</head>
+<body>
+  <div class="card">
+    <div class="title">DevUI 时区 <span class="r {{TZSTATECLASS}}">{{TZSTATE}}</span></div>
+    <table>
+      <tr><td class="kv-l">当前显示</td><td class="val">{{TZCURRENT}}</td></tr>
+      <tr><td class="kv-l">基础偏移</td><td class="val">{{TZDRAFT}}</td></tr>
+      <tr><td class="kv-l">最终显示</td><td class="val">{{TZEFFECTIVE}}</td></tr>
+    </table>
+    <p class="func-note">只影响 DevUI 时间、日志和流量周期，不修改系统 UTC 与代理环境</p>
+  </div>
+
+  <div class="card">
+    <div class="title">UTC 小时偏移</div>
+    <div class="tz-hour-grid">{{TZHOURS}}</div>
+  </div>
+
+  <div class="card">
+    <div class="title">分钟偏移</div>
+    {{TZMINUTES}}
+  </div>
+
+  <div class="card">
+    <div class="title">夏令时</div>
+    {{TZDST}}
+    <p class="func-note">仅在当地实际实行夏令时时开启</p>
+    <div class="svc-grid">
+      <a href="act:tzapply" class="svc-btn svc-wide">应用时区</a>
+    </div>
+  </div>
+</body>
+</html>

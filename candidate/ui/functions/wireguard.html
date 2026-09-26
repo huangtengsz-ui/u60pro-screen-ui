@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>WireGuard 客户端</title>
+</head>
+<body>
+  <div class="card">
+    <div class="title">WireGuard <span class="r {{WGSTATECLASS}}">{{WGSTATE}}</span></div>
+    <table>
+      <tr><td class="kv-l">接口 / 模式</td><td class="val sm">{{WGIFACE}} · {{WGMODE}}</td></tr>
+      <tr><td class="kv-l">隧道地址</td><td class="val sm">{{WGADDRESS}}</td></tr>
+      <tr><td class="kv-l">监听端口</td><td class="val">{{WGPORT}}</td></tr>
+      <tr><td class="kv-l">运行时间</td><td class="val">{{WGUPTIME}}</td></tr>
+      <tr><td class="kv-l">开机自启</td><td class="val">{{WGBOOT}}</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="title">服务控制</div>
+    <div class="svc-grid">
+      <a href="act:wgstart" class="svc-btn {{WGRUNCLASS}}">启动</a>
+      <a href="act:wgstop" class="svc-btn {{WGSTOPCLASS}}">停止</a>
+    </div>
+    <div class="svc-grid svc-secondary">
+      <a href="act:wgrestart" class="svc-btn">重启</a>
+      <a href="act:wgrefresh" class="svc-btn">刷新</a>
+    </div>
+    <div class="svc-log">{{WGACTIONLOG}}</div>
+  </div>
+
+  <div class="card compact-card">
+    <div class="title">Peer <span class="r muted">{{WGACTIVE}} 活跃 / {{WGPEERS}} 总计</span></div>
+    <div class="compact-list">{{WGPEERLIST}}</div>
+    <p class="func-note">密钥和 Peer 配置请在 UFI-TOOLS 网页端修改。</p>
+  </div>
+</body>
+</html>

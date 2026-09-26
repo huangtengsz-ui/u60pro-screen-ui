@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><link rel="stylesheet" href="style.css"></head>
+<body class="{{THEME}} advanced readable">
+  {{STATUSBAR}}
+  <div class="subtop">
+    <a href="act:backfunc" class="subback">返回</a>
+    <span class="subname"><span class="ui-ico ico-advanced"><i></i><em></em><b></b></span>高级工具</span>
+  </div>
+  <div class="advanced-section">网络诊断与控制</div>
+  <div class="func-grid">
+    <a href="act:sub:charts.html" class="func-tile func-tile-wide has-icon"><span class="ui-ico ico-chart"><i></i><em></em><b></b></span><span class="func-name">网络与设备</span><span class="func-desc">网速、负载与电量</span></a>
+    <a href="act:sub:cell.html" class="func-tile has-icon"><span class="ui-ico ico-signal"><i></i><em></em><b></b></span><span class="func-name">信令读取</span><span class="func-desc">基站与调制细节</span></a>
+    <a href="act:sub:lock.html" class="func-tile has-icon"><span class="ui-ico ico-lock"><i></i><em></em><b></b></span><span class="func-name">锁频</span><span class="func-desc">选网与频段设置</span></a>
+    {{STFUNCTIONTILE}}
+  </div>
+  <div class="advanced-section">设备与扩展</div>
+  <div class="func-grid">
+    <a href="act:func:sim-switch.html" class="func-tile has-icon"><span class="ui-ico ico-sim"><i></i><em></em><b></b></span><span class="func-name">双卡管理</span><span class="func-desc">驻网与数据卡</span></a>
+    {{TIMEZONEFUNCTIONTILE}}
+    {{CUSTOMFUNCTIONTILES}}
+  </div>
+  {{TOAST}}
+  <div class="pgpad"></div>
+</body>
+</html>

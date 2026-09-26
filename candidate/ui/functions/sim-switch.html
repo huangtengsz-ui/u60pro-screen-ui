@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>双卡管理</title>
+</head>
+<body>
+  <div class="card">
+    <div class="title">双卡状态 <span class="r {{SIMREADYCLASS}}">{{SIMREADY}}</span></div>
+    <table>
+      <tr><td class="kv-l">驻网模式</td><td class="val">{{SIMMODE}}</td></tr>
+      <tr><td class="kv-l">当前数据卡</td><td class="val">{{SIMCURRENT}}</td></tr>
+      <tr><td class="kv-l">智能切换</td><td class="val">{{SIMAUTO}}</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="title">驻网模式</div>
+    <div class="svc-grid">
+      <a href="act:simmanage:single" class="svc-btn {{SIMSINGLECLASS}}">{{SIMSINGLELABEL}}</a>
+      <a href="act:simmanage:dual" class="svc-btn {{SIMDUALCLASS}}">{{SIMDUALLABEL}}</a>
+    </div>
+    <p class="func-note">切换驻网模式需在 4 秒内再次点击确认</p>
+  </div>
+
+  <div class="card">
+    <div class="title">数据卡选择</div>
+    <div class="svc-grid sim-manage-grid">
+      <a href="act:simslot:1" class="svc-btn {{SIM1CLASS}}">{{SIM1LABEL}}<br><span class="sm">{{SIM1OP}}</span></a>
+      <a href="act:simslot:2" class="svc-btn {{SIM2CLASS}}">{{SIM2LABEL}}<br><span class="sm">{{SIM2OP}}</span></a>
+    </div>
+    <table>
+      <tr><td class="kv-l">自插卡</td><td class="val">{{SIM1PROVISION}} · {{SIM1STATE}}</td></tr>
+      <tr><td class="kv-l">内置卡</td><td class="val">{{SIM2PROVISION}} · {{SIM2STATE}}</td></tr>
+    </table>
+    <p class="func-note">更换数据卡会短暂断网，也需在 4 秒内再次点击确认</p>
+  </div>
+
+  <div class="card">
+    <div class="title">智能双卡切换</div>
+    <div class="svc-grid">
+      <a href="act:simsmart:1" class="svc-btn {{SIMAUTOONCLASS}}">开启</a>
+      <a href="act:simsmart:0" class="svc-btn {{SIMAUTOOFFCLASS}}">关闭</a>
+    </div>
+    <p class="func-note">开启后由设备自动选择数据卡；手动指定数据卡时建议关闭</p>
+  </div>
+
+  <div class="card">
+    <div class="svc-grid svc-secondary">
+      <a href="act:simmoderefresh" class="svc-btn svc-wide">刷新状态</a>
+    </div>
+    <div class="svc-log">{{SIMACTIONLOG}}</div>
+  </div>
+</body>
+</html>
