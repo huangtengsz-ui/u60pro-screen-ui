@@ -1,6 +1,6 @@
 # U60 Pro 三页屏幕 UI · 1.0.0
 
-这个目录包含 UFI-TOOLS 插件商店的单文件插件和屏幕资源。商店只收一个 `.js` 或 `.txt` 文件，因此投稿选择 `U60Pro三页屏幕UI-基于33333s及scoltzero改版.js`；屏幕程序和页面优先从 [GitHub Releases](https://github.com/huangtengsz-ui/u60pro-screen-ui/releases) 下载，设备连不上 `github.com` 时改用同仓库的 `raw.githubusercontent.com` 固定标签地址。`v1.0.0` Release 包含 `u60pro-devui-aarch64`、`ui.tar.gz`、`source.tar.gz`、`version.json`、`SHA256SUMS`、插件的 ASCII 文件名副本和许可文件包 `licenses.tar.gz`。
+这个目录包含 UFI-TOOLS 插件商店的单文件插件和屏幕资源。商店只收一个 `.js` 或 `.txt` 文件，因此投稿选择 `U60Pro三页屏幕UI.js`；屏幕程序和页面优先从 [GitHub Releases](https://github.com/huangtengsz-ui/u60pro-screen-ui/releases) 下载，设备连不上 `github.com` 时改用同仓库的 `raw.githubusercontent.com` 固定标签地址。`v1.0.0` Release 包含 `u60pro-devui-aarch64`、`ui.tar.gz`、`source.tar.gz`、`version.json`、`SHA256SUMS`、插件的 ASCII 文件名副本和许可文件包 `licenses.tar.gz`。
 
 ## 适用范围
 
@@ -12,7 +12,7 @@
 
 ## 文件与版本
 
-- 商店文件：`U60Pro三页屏幕UI-基于33333s及scoltzero改版.js`，插件版本 `1.0.0`。
+- 商店文件：`U60Pro三页屏幕UI.js`，插件版本 `1.0.0`。
 - 渲染程序：`u60pro-devui-aarch64`，资源版本 `1.3.0-huang.1`。
 - 页面：`ui.tar.gz`，资源版本 `0.5.0-huang.1`。
 - 设备安装前先校验程序和页面 SHA-256；原程序和页面在设备内保留为 `.screen-ui-backup-*`，可通过插件“恢复上个版本”回退。
@@ -32,13 +32,13 @@
 
 | 字段 | 本版填写值 |
 | --- | --- |
-| 插件文件 / 展示名称 | `U60Pro三页屏幕UI-基于33333s及scoltzero改版.js` / `U60Pro三页屏幕UI-基于33333s及scoltzero改版` |
+| 插件文件 / 展示名称 | `U60Pro三页屏幕UI.js` / `U60Pro三页屏幕UI` |
 | 版本号 | `1.0.0` |
 | 插件描述 | `基于 33333s 原版与 scoltzero Remix 改版，致谢 Aawuxing 双卡页面。U60 Pro B31 三页 UI，突出网速、信号和流量；需先安装屏幕管理插件及 datad，支持备份回退。`（104 字） |
-| 作者 | 由登录的投稿账号显示；不填写原作者为投稿人。原作者在题名、描述、插件界面和 `NOTICE.md` 致谢。 |
+| 作者 | 由登录的投稿账号显示；不填写原作者为投稿人。原作者在描述、插件安装弹窗和 `NOTICE.md` 致谢。首次投稿的长文件名因「名字不是简介」未通过审核，因此展示名改为简短功能名称。 |
 
 当前页面没有要求单独上传图标、截图或分类。正式投稿前，须先发布 GitHub Release 附件，使脚本中的公开下载地址可用。
 
 ## 本地复核
 
-运行 `python3 release/build_release.py` 与 `python3 release/build_store_plugin.py` 重新打包。前者从已验证的 `candidate/` 复制资源，并在归档内重建正确的 `.devui-managed-files`；不会修改候选版或设备。然后用 `shasum -a 256 -c SHA256SUMS`、`tar -tzf ui.tar.gz` 和 `node --check U60Pro三页屏幕UI-基于33333s及scoltzero改版.js` 检查输出。
+运行 `python3 release/build_release.py` 与 `python3 release/build_store_plugin.py` 重新打包。前者从已验证的 `candidate/` 复制资源，并在归档内重建正确的 `.devui-managed-files`；不会修改候选版或设备。然后用 `shasum -a 256 -c SHA256SUMS`、`tar -tzf ui.tar.gz` 和 `node --check U60Pro三页屏幕UI.js` 检查输出。

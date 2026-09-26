@@ -24,7 +24,8 @@ def main() -> None:
     result = result.replace("@@INSTALL_SCRIPT_JSON@@", json.dumps(installer, ensure_ascii=False))
     result = result.replace("@@RESTORE_SCRIPT_JSON@@", json.dumps(restore, ensure_ascii=False))
     assert "@@" not in result
-    target = OUT / "U60Pro三页屏幕UI-基于33333s及scoltzero改版.js"
+    (OUT / "U60Pro三页屏幕UI-基于33333s及scoltzero改版.js").unlink(missing_ok=True)
+    target = OUT / "U60Pro三页屏幕UI.js"
     target.write_text(result)
     assert target.stat().st_size < 1145 * 1024
     release_alias = OUT / "U60Pro-ThreePage-Screen-UI.js"

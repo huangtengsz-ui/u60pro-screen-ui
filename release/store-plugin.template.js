@@ -4,7 +4,7 @@
 // Source and license: https://github.com/huangtengsz-ui/u60pro-screen-ui
 (async () => {
   'use strict';
-  const NAME = 'U60 Pro 三页屏幕 UI｜致谢 33333s、scoltzero';
+  const NAME = 'U60 Pro 三页屏幕 UI';
   const BUTTON_TEXT = '三页屏幕 UI';
   const RELEASE_URL = @@RELEASE_URL_JSON@@;
   const INSTALL_SCRIPT = @@INSTALL_SCRIPT_JSON@@;
@@ -50,6 +50,7 @@
     const card = node('div', '', 'box-sizing:border-box;width:min(440px,100%);max-height:90vh;overflow:auto;background:#17232c;color:#f3f8fa;border:1px solid #487284;border-radius:16px;padding:20px;font:14px/1.55 system-ui,sans-serif;box-shadow:0 16px 44px #0007');
     const title = node('h2', NAME, 'margin:0 0 10px;font-size:19px');
     const info = node('p', '适用于已安装「屏幕管理插件」及 datad 的 U60 Pro B31。安装会更新屏幕程序和页面，保留原有配置与自定义文件。之后如从原屏幕管理插件的旧更新源更新，可能覆盖此版本。', 'margin:0 0 10px;color:#c8d6dc');
+    const credits = node('p', '基于 33333s 原版与 scoltzero Remix 改版；双卡页面致谢 Aawuxing。原项目许可与完整来源见 GitHub NOTICE.md。', 'margin:0 0 12px;color:#9ec8d8;font-size:12px');
     const source = node('p', `资源：${RELEASE_URL}`, 'margin:0 0 12px;color:#9ec8d8;overflow-wrap:anywhere;font-size:12px');
     const status = node('pre', '尚未检查设备', 'white-space:pre-wrap;word-break:break-word;background:#0b151a;border:1px solid #365261;border-radius:9px;padding:10px;min-height:48px;max-height:180px;overflow:auto');
     const row = node('div', '', 'display:flex;flex-wrap:wrap;gap:8px');
@@ -61,7 +62,7 @@
     install.style.background = '#166b82';
     restore.style.background = '#4a5369';
     row.append(check, install, restore, close);
-    card.append(title, info, source, status, row);
+    card.append(title, info, credits, source, status, row);
     overlay.append(card);
     document.body.append(overlay);
     overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
